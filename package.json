@@ -1,0 +1,10 @@
+{
+  "name": "mean_customer_orders",
+  "description": "Full MEAN: Customer Orders",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "ejs": "1.0.0",
+    "express": "~4.10.0",
+    "mongoose":"3.8"
+  }
+}

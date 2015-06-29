@@ -1,0 +1,39 @@
+<div ng-controller="customersController">
+	<div class="row">
+		<div class="col-md-12">	
+			<h2>Add a New Customer:</h2>
+			<form name="add" class="form" novalidate>
+				<div class="form-group">
+					<label for="customer">Customer Name:</label>
+					<!-- <input type="text" name="name" class="form-control" ng-model='newCustomer.customer' ng-change="validateCustomer(newCustomer)"> -->
+					<input type="text" name="name" class="form-control" ng-model='newCustomer.name'>
+					<input type="submit" name="Add" class="btn btn-primary" ng-disabled="add.$invalid" ng-click="addCustomer(newCustomer)">
+				</div>
+			</form>
+
+			<form name="search" class="form">
+				<div class="form-group">
+					<label for="filter">Search Customers:</label>
+					<input type="text" name="filter" class="form-control" placeholder="filter..." ng-model="customer_name">
+				</div>
+			</form>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th data-field="customer">Customer Name</th>
+						<th data-field="created_at">Date</th>
+						<th class="right" data-field="action">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat='customer in customers | filter:customer_name | orderBy: created_date'>
+						<td ng-bind='customer.name'></td>
+						<td ng-bind='customer.created_at | date'></td>
+						<td class="right"><form><input type="submit" value="Delete" class="btn btn-danger" ng-click="deleteCustomer(customer)"></form></td>						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
